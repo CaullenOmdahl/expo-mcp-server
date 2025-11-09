@@ -1,5 +1,7 @@
 # Expo MCP Server
 
+[![smithery badge](https://smithery.ai/badge/@CaullenOmdahl/expo-mcp-server)](https://smithery.ai/server/@CaullenOmdahl/expo-mcp-server)
+
 Model Context Protocol (MCP) server for Expo.dev that enables programmatic interaction with Expo projects and EAS (Expo Application Services).
 
 ## Overview
