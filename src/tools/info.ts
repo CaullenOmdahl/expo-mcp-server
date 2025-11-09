@@ -33,14 +33,14 @@ is working correctly.
 
 **Errors:**
 - Not authenticated (EXPO_TOKEN not set or invalid)`,
-      inputSchema: z.object({
+      inputSchema: {
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         username: z.string(),
         authenticated: z.boolean()
-      }),
+      },
       annotations: {
         readOnlyHint: true,
         destructiveHint: false,
@@ -93,16 +93,16 @@ Retrieves project metadata including project ID, slug, owner, and EAS configurat
 - Not an Expo project
 - Project not registered with EAS
 - Authentication required`,
-      inputSchema: z.object({
+      inputSchema: {
         projectPath: z.string()
           .optional()
           .describe('Path to the Expo project. Default: current directory'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         project: z.any()
-      }),
+      },
       annotations: {
         readOnlyHint: true,
         destructiveHint: false,

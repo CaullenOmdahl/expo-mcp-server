@@ -38,7 +38,7 @@ It's the first step in creating a new Expo application.
 - Directory already exists
 - Invalid template name
 - Network errors during package installation`,
-      inputSchema: z.object({
+      inputSchema: {
         projectName: z.string()
           .min(1)
           .describe('Name of the project directory to create. Example: "my-awesome-app"'),
@@ -50,12 +50,12 @@ It's the first step in creating a new Expo application.
           .describe('Parent directory where the project should be created. Default: current directory'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         success: z.boolean(),
         projectPath: z.string(),
         message: z.string()
-      }),
+      },
       annotations: {
         readOnlyHint: false,
         destructiveHint: false,
@@ -113,7 +113,7 @@ of packages based on your Expo SDK version.
 - Version incompatibility
 - Network errors
 - Must be run in an Expo project directory`,
-      inputSchema: z.object({
+      inputSchema: {
         packages: z.array(z.string())
           .min(1)
           .describe('Array of package names to install. Examples: ["expo-camera"], ["react-native-maps", "expo-location"]'),
@@ -122,12 +122,12 @@ of packages based on your Expo SDK version.
           .describe('Path to the Expo project. Default: current directory'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         success: z.boolean(),
         installedPackages: z.array(z.string()),
         message: z.string()
-      }),
+      },
       annotations: {
         readOnlyHint: false,
         destructiveHint: false,
@@ -189,7 +189,7 @@ including all dynamic values from app.config.js.
 - No app.json or app.config.js found
 - Invalid configuration syntax
 - Missing required fields`,
-      inputSchema: z.object({
+      inputSchema: {
         projectPath: z.string()
           .optional()
           .describe('Path to the Expo project. Default: current directory'),
@@ -198,10 +198,10 @@ including all dynamic values from app.config.js.
           .describe('Include full configuration including defaults. Default: false'),
         format: FormatSchema.default('json')
           .describe('Output format: "json" or "markdown". Default: "json" for configs')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         config: z.any()
-      }),
+      },
       annotations: {
         readOnlyHint: true,
         destructiveHint: false,
@@ -265,7 +265,7 @@ unless you're committing native code modifications.
 - Invalid configuration
 - Missing dependencies
 - Platform-specific errors`,
-      inputSchema: z.object({
+      inputSchema: {
         projectPath: z.string()
           .optional()
           .describe('Path to the Expo project. Default: current directory'),
@@ -277,12 +277,12 @@ unless you're committing native code modifications.
           .describe('Delete existing native folders before generating. Default: false'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         success: z.boolean(),
         platforms: z.array(z.string()),
         message: z.string()
-      }),
+      },
       annotations: {
         readOnlyHint: false,
         destructiveHint: false,

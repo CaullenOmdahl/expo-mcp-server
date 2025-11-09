@@ -49,7 +49,7 @@ ready for distribution or submission to app stores.
 - Invalid profile name (check eas.json)
 - Configuration errors
 - Insufficient quota/credits`,
-      inputSchema: z.object({
+      inputSchema: {
         platform: PlatformSchema
           .describe('Platform to build: "ios", "android", or "all" (both)'),
         profile: BuildProfileSchema
@@ -63,14 +63,14 @@ ready for distribution or submission to app stores.
           .describe('Run in non-interactive mode. Default: true'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         buildId: z.string().optional(),
         platform: z.string(),
         profile: z.string(),
         status: z.string(),
         link: z.string().optional()
-      }),
+      },
       annotations: {
         readOnlyHint: false,
         destructiveHint: false,
@@ -137,7 +137,7 @@ further operations.
 **Errors:**
 - Authentication required
 - Project not found`,
-      inputSchema: z.object({
+      inputSchema: {
         projectPath: z.string()
           .optional()
           .describe('Path to the Expo project. Default: current directory'),
@@ -157,10 +157,10 @@ further operations.
           .describe('Maximum number of builds to return. Default: 10, Max: 50'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         builds: z.array(z.any())
-      }),
+      },
       annotations: {
         readOnlyHint: true,
         destructiveHint: false,
@@ -224,16 +224,16 @@ logs, and download links for completed builds.
 **Errors:**
 - Build ID not found
 - Authentication required`,
-      inputSchema: z.object({
+      inputSchema: {
         buildId: z.string()
           .min(1)
           .describe('Build ID to check status for. Example: "abc-123-def-456"'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         build: z.any()
-      }),
+      },
       annotations: {
         readOnlyHint: true,
         destructiveHint: false,
@@ -290,18 +290,18 @@ Completed or errored builds cannot be canceled.
 - Build ID not found
 - Build already completed/errored
 - Not authorized to cancel build`,
-      inputSchema: z.object({
+      inputSchema: {
         buildId: z.string()
           .min(1)
           .describe('Build ID to cancel. Example: "abc-123-def-456"'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         success: z.boolean(),
         buildId: z.string(),
         message: z.string()
-      }),
+      },
       annotations: {
         readOnlyHint: false,
         destructiveHint: true,

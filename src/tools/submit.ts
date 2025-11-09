@@ -44,7 +44,7 @@ App Store Connect is still required.
 - Build not compatible (wrong bundle ID, etc.)
 - App Store Connect API errors
 - Build already submitted`,
-      inputSchema: z.object({
+      inputSchema: {
         buildId: z.string()
           .optional()
           .describe('Specific build ID to submit. If omitted, uses latest successful iOS build'),
@@ -62,12 +62,12 @@ App Store Connect is still required.
           .describe('Path to the Expo project. Default: current directory'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         success: z.boolean(),
         buildId: z.string().optional(),
         message: z.string()
-      }),
+      },
       annotations: {
         readOnlyHint: false,
         destructiveHint: false,
@@ -138,7 +138,7 @@ publish from Google Play Console after upload.
 - Build not compatible (wrong package name, etc.)
 - Google Play API errors
 - Version code already exists`,
-      inputSchema: z.object({
+      inputSchema: {
         track: z.enum(['internal', 'alpha', 'beta', 'production'])
           .default('internal')
           .describe('Google Play track for submission. Default: "internal"'),
@@ -153,13 +153,13 @@ publish from Google Play Console after upload.
           .describe('Path to the Expo project. Default: current directory'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         success: z.boolean(),
         buildId: z.string().optional(),
         track: z.string(),
         message: z.string()
-      }),
+      },
       annotations: {
         readOnlyHint: false,
         destructiveHint: false,

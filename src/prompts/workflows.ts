@@ -13,13 +13,13 @@ export function registerWorkflowPrompts(server: McpServer): void {
     {
       title: 'Create and Deploy Expo App',
       description: 'Complete workflow for creating a new Expo app and deploying it to app stores',
-      argsSchema: z.object({
+      argsSchema: {
         appName: z.string()
           .describe('Name of the app to create'),
         platform: z.enum(['ios', 'android', 'both'])
           .default('both')
           .describe('Target platform(s)')
-      })
+      }
     },
     ({ appName, platform }) => ({
       messages: [
@@ -52,13 +52,13 @@ For each step, explain what you're doing and wait for my confirmation before pro
     {
       title: 'Deploy Over-the-Air Update',
       description: 'Publish an OTA update to fix bugs or add features without app store review',
-      argsSchema: z.object({
+      argsSchema: {
         branch: z.string()
           .default('production')
           .describe('Branch to publish update to'),
         description: z.string()
           .describe('Description of what this update contains')
-      })
+      }
     },
     ({ branch, description }) => ({
       messages: [
@@ -89,11 +89,11 @@ Explain each step as we go.`
     {
       title: 'Troubleshoot Build Issues',
       description: 'Debug and fix common build problems',
-      argsSchema: z.object({
+      argsSchema: {
         buildId: z.string()
           .optional()
           .describe('Build ID to investigate (optional)')
-      })
+      }
     },
     ({ buildId }) => ({
       messages: [
@@ -130,11 +130,11 @@ Please help me:
     {
       title: 'Set Up CI/CD Pipeline',
       description: 'Guide for setting up automated builds and deployments',
-      argsSchema: z.object({
+      argsSchema: {
         platform: z.enum(['github-actions', 'gitlab-ci', 'other'])
           .default('github-actions')
           .describe('CI/CD platform to use')
-      })
+      }
     },
     ({ platform }) => ({
       messages: [
@@ -165,7 +165,7 @@ Let's go step by step.`
     {
       title: 'Check Project Health',
       description: 'Run comprehensive checks on your Expo project',
-      argsSchema: z.object({})
+      argsSchema: {}
     },
     () => ({
       messages: [

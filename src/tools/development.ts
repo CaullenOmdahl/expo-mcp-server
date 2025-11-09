@@ -45,7 +45,7 @@ This tool checks for common problems including:
 **Errors:**
 - Not an Expo project
 - Unable to read configuration`,
-      inputSchema: z.object({
+      inputSchema: {
         projectPath: z.string()
           .optional()
           .describe('Path to the Expo project. Default: current directory'),
@@ -54,11 +54,11 @@ This tool checks for common problems including:
           .describe('Attempt to automatically fix found issues. Default: false'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         issues: z.array(z.any()),
         fixed: z.array(z.string()).optional()
-      }),
+      },
       annotations: {
         readOnlyHint: false,
         destructiveHint: false,

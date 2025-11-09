@@ -49,7 +49,7 @@ requiring a full app store review and download.
 - Authentication required
 - No compatible builds found
 - Bundle errors`,
-      inputSchema: z.object({
+      inputSchema: {
         branch: z.string()
           .min(1)
           .describe('Branch name to publish to. Common: "production", "preview", "development". Example: "production"'),
@@ -64,13 +64,13 @@ requiring a full app store review and download.
           .describe('Path to the Expo project. Default: current directory'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         updateId: z.string().optional(),
         branch: z.string(),
         message: z.string(),
         link: z.string().optional()
-      }),
+      },
       annotations: {
         readOnlyHint: false,
         destructiveHint: false,
@@ -130,7 +130,7 @@ View update history to see what has been published, when, and to which branches.
 **Errors:**
 - Authentication required
 - Project not found`,
-      inputSchema: z.object({
+      inputSchema: {
         branch: z.string()
           .optional()
           .describe('Filter by branch name. Example: "production"'),
@@ -144,10 +144,10 @@ View update history to see what has been published, when, and to which branches.
           .describe('Maximum number of updates to return. Default: 10, Max: 50'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         updates: z.array(z.any())
-      }),
+      },
       annotations: {
         readOnlyHint: true,
         destructiveHint: false,
@@ -208,7 +208,7 @@ subscribe to different channels, enabling:
 - Channel already exists
 - Invalid channel name
 - Authentication required`,
-      inputSchema: z.object({
+      inputSchema: {
         channelName: z.string()
           .min(1)
           .describe('Name of the channel to create. Example: "beta-testers", "production", "staging"'),
@@ -220,12 +220,12 @@ subscribe to different channels, enabling:
           .describe('Path to the Expo project. Default: current directory'),
         format: FormatSchema.default('markdown')
           .describe('Output format: "json" or "markdown"')
-      }).strict(),
-      outputSchema: z.object({
+      },
+      outputSchema: {
         success: z.boolean(),
         channelName: z.string(),
         message: z.string()
-      }),
+      },
       annotations: {
         readOnlyHint: false,
         destructiveHint: false,
