@@ -44,6 +44,12 @@ export default function createServer(config?: ExpoServerConfig) {
 export { configSchema };
 
 /**
+ * Export stateless flag for Smithery
+ * This server is stateless - each request is independent
+ */
+export const stateless = true;
+
+/**
  * Main entry point when run as a standalone server
  */
 async function main() {
