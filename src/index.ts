@@ -10,6 +10,7 @@ import { registerBuildTools } from './tools/build.js';
 import { registerUpdateTools } from './tools/update.js';
 import { registerSubmitTools } from './tools/submit.js';
 import { registerInfoTools } from './tools/info.js';
+import { registerWorkflowPrompts } from './prompts/workflows.js';
 
 /**
  * Creates and configures the Expo MCP server
@@ -22,6 +23,9 @@ export default function createServer(config?: ExpoServerConfig) {
 
   // Register documentation resources
   registerDocumentationResources(server);
+
+  // Register workflow prompts
+  registerWorkflowPrompts(server);
 
   // Register all tool categories
   registerProjectTools(server, config);
@@ -64,6 +68,12 @@ async function main() {
   console.error('  - EAS Update: eas_update_publish, eas_update_list, eas_channel_create');
   console.error('  - EAS Submit: eas_submit_ios, eas_submit_android');
   console.error('  - Info: expo_whoami, eas_project_info');
+  console.error('\nWorkflow prompts:');
+  console.error('  - create-and-deploy-app: Complete app creation and deployment workflow');
+  console.error('  - deploy-ota-update: Publish over-the-air updates');
+  console.error('  - troubleshoot-build: Debug build issues');
+  console.error('  - setup-cicd: Set up CI/CD pipeline');
+  console.error('  - check-project-health: Comprehensive project health check');
   console.error('\nDocumentation resources available via expo://docs/* URIs');
 }
 

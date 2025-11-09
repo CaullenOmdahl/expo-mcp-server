@@ -58,13 +58,13 @@ This tool checks for common problems including:
       outputSchema: z.object({
         issues: z.array(z.any()),
         fixed: z.array(z.string()).optional()
-      })
-    },
-    {
-      readOnlyHint: false,
-      destructiveHint: false,
-      idempotentHint: true,
-      openWorldHint: false
+      }),
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: false
+      }
     },
     async ({ projectPath, fixIssues, format }) => {
       try {

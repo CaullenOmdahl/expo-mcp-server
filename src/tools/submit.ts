@@ -67,13 +67,13 @@ App Store Connect is still required.
         success: z.boolean(),
         buildId: z.string().optional(),
         message: z.string()
-      })
-    },
-    {
-      readOnlyHint: false,
-      destructiveHint: false,
-      idempotentHint: false,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: false,
+        openWorldHint: true
+      }
     },
     async ({ buildId, ascApiKeyPath, ascApiKeyId, ascApiKeyIssuerId, projectPath, format }) => {
       try {
@@ -159,13 +159,13 @@ publish from Google Play Console after upload.
         buildId: z.string().optional(),
         track: z.string(),
         message: z.string()
-      })
-    },
-    {
-      readOnlyHint: false,
-      destructiveHint: false,
-      idempotentHint: false,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: false,
+        openWorldHint: true
+      }
     },
     async ({ track, buildId, serviceAccountKeyPath, projectPath, format }) => {
       try {

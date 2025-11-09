@@ -70,13 +70,13 @@ ready for distribution or submission to app stores.
         profile: z.string(),
         status: z.string(),
         link: z.string().optional()
-      })
-    },
-    {
-      readOnlyHint: false,
-      destructiveHint: false,
-      idempotentHint: false,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: false,
+        openWorldHint: true
+      }
     },
     async ({ platform, profile, projectPath, nonInteractive, format }) => {
       try {
@@ -160,13 +160,13 @@ further operations.
       }).strict(),
       outputSchema: z.object({
         builds: z.array(z.any())
-      })
-    },
-    {
-      readOnlyHint: true,
-      destructiveHint: false,
-      idempotentHint: true,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: true,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: true
+      }
     },
     async ({ projectPath, platform, status, profile, limit, format }) => {
       try {
@@ -233,13 +233,13 @@ logs, and download links for completed builds.
       }).strict(),
       outputSchema: z.object({
         build: z.any()
-      })
-    },
-    {
-      readOnlyHint: true,
-      destructiveHint: false,
-      idempotentHint: true,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: true,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: true
+      }
     },
     async ({ buildId, format }) => {
       try {
@@ -301,13 +301,13 @@ Completed or errored builds cannot be canceled.
         success: z.boolean(),
         buildId: z.string(),
         message: z.string()
-      })
-    },
-    {
-      readOnlyHint: false,
-      destructiveHint: true,
-      idempotentHint: true,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: true,
+        idempotentHint: true,
+        openWorldHint: true
+      }
     },
     async ({ buildId, format }) => {
       try {

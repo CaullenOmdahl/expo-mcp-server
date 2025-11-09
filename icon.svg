@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="expoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4630EB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000020;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#expoGradient)"/>
+
+  <!-- Expo "E" stylized shape -->
+  <path d="M 180 150 L 340 150 L 340 190 L 220 190 L 220 236 L 320 236 L 320 276 L 220 276 L 220 322 L 340 322 L 340 362 L 180 362 Z"
+        fill="white"
+        stroke="none"/>
+
+  <!-- Small triangle accent (representing React Native/mobile) -->
+  <polygon points="380,180 420,240 340,240" fill="#61DAFB" opacity="0.8"/>
+
+  <!-- MCP connection dots -->
+  <circle cx="140" cy="420" r="12" fill="#4630EB"/>
+  <circle cx="200" cy="440" r="10" fill="#4630EB"/>
+  <circle cx="256" cy="450" r="12" fill="#4630EB"/>
+  <circle cx="312" cy="440" r="10" fill="#4630EB"/>
+  <circle cx="372" cy="420" r="12" fill="#4630EB"/>
+
+  <!-- Connection lines -->
+  <path d="M 140 420 L 200 440 L 256 450 L 312 440 L 372 420"
+        stroke="#61DAFB"
+        stroke-width="3"
+        fill="none"
+        opacity="0.6"/>
+</svg>

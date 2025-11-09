@@ -40,13 +40,13 @@ is working correctly.
       outputSchema: z.object({
         username: z.string(),
         authenticated: z.boolean()
-      })
-    },
-    {
-      readOnlyHint: true,
-      destructiveHint: false,
-      idempotentHint: true,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: true,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: true
+      }
     },
     async ({ format }) => {
       try {
@@ -102,13 +102,13 @@ Retrieves project metadata including project ID, slug, owner, and EAS configurat
       }).strict(),
       outputSchema: z.object({
         project: z.any()
-      })
-    },
-    {
-      readOnlyHint: true,
-      destructiveHint: false,
-      idempotentHint: true,
-      openWorldHint: false
+      }),
+      annotations: {
+        readOnlyHint: true,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: false
+      }
     },
     async ({ projectPath, format }) => {
       try {

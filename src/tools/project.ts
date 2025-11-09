@@ -55,13 +55,13 @@ It's the first step in creating a new Expo application.
         success: z.boolean(),
         projectPath: z.string(),
         message: z.string()
-      })
-    },
-    {
-      readOnlyHint: false,
-      destructiveHint: false,
-      idempotentHint: false,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: false,
+        openWorldHint: true
+      }
     },
     async ({ projectName, template, directory, format }) => {
       try {
@@ -127,13 +127,13 @@ of packages based on your Expo SDK version.
         success: z.boolean(),
         installedPackages: z.array(z.string()),
         message: z.string()
-      })
-    },
-    {
-      readOnlyHint: false,
-      destructiveHint: false,
-      idempotentHint: true,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: true
+      }
     },
     async ({ packages, projectPath, format }) => {
       try {
@@ -201,13 +201,13 @@ including all dynamic values from app.config.js.
       }).strict(),
       outputSchema: z.object({
         config: z.any()
-      })
-    },
-    {
-      readOnlyHint: true,
-      destructiveHint: false,
-      idempotentHint: true,
-      openWorldHint: false
+      }),
+      annotations: {
+        readOnlyHint: true,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: false
+      }
     },
     async ({ projectPath, full, format }) => {
       try {
@@ -282,13 +282,13 @@ unless you're committing native code modifications.
         success: z.boolean(),
         platforms: z.array(z.string()),
         message: z.string()
-      })
-    },
-    {
-      readOnlyHint: false,
-      destructiveHint: false,
-      idempotentHint: true,
-      openWorldHint: false
+      }),
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: false
+      }
     },
     async ({ projectPath, platform, clean, format }) => {
       try {

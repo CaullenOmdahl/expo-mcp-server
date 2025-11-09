@@ -70,13 +70,13 @@ requiring a full app store review and download.
         branch: z.string(),
         message: z.string(),
         link: z.string().optional()
-      })
-    },
-    {
-      readOnlyHint: false,
-      destructiveHint: false,
-      idempotentHint: false,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: false,
+        openWorldHint: true
+      }
     },
     async ({ branch, message, channel, projectPath, format }) => {
       try {
@@ -147,13 +147,13 @@ View update history to see what has been published, when, and to which branches.
       }).strict(),
       outputSchema: z.object({
         updates: z.array(z.any())
-      })
-    },
-    {
-      readOnlyHint: true,
-      destructiveHint: false,
-      idempotentHint: true,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: true,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: true
+      }
     },
     async ({ branch, projectPath, limit, format }) => {
       try {
@@ -225,13 +225,13 @@ subscribe to different channels, enabling:
         success: z.boolean(),
         channelName: z.string(),
         message: z.string()
-      })
-    },
-    {
-      readOnlyHint: false,
-      destructiveHint: false,
-      idempotentHint: true,
-      openWorldHint: true
+      }),
+      annotations: {
+        readOnlyHint: false,
+        destructiveHint: false,
+        idempotentHint: true,
+        openWorldHint: true
+      }
     },
     async ({ channelName, branchMapping, projectPath, format }) => {
       try {
