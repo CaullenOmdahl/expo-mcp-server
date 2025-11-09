@@ -1,1 +1,12 @@
 runtime: "typescript"
+configSchema:
+  type: "object"
+  properties:
+    expoToken:
+      type: "string"
+      description: "Expo access token for authentication (can also use EXPO_TOKEN env var)"
+    defaultFormat:
+      type: "string"
+      enum: ["json", "markdown"]
+      default: "markdown"
+      description: "Default output format for tool responses"
